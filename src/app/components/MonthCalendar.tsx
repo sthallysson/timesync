@@ -84,7 +84,8 @@ export function MonthCalendar() {
     for (let i = 1; i <= dayInMonth; i++) {
       const isToday =
         currentDate.getDate() === i &&
-        currentDate.getMonth() === new Date().getMonth();
+        currentDate.getMonth() === new Date().getMonth() &&
+        currentDate.getFullYear() === new Date().getFullYear();
 
       calendarDays.push(
         <div
@@ -129,7 +130,7 @@ export function MonthCalendar() {
               new Date(
                 currentDate.getFullYear(),
                 currentDate.getMonth() - 1,
-                1,
+                currentDate.getDate(),
               ),
             )
           }
@@ -148,7 +149,7 @@ export function MonthCalendar() {
               new Date(
                 currentDate.getFullYear(),
                 currentDate.getMonth() + 1,
-                1,
+                currentDate.getDate(),
               ),
             )
           }
