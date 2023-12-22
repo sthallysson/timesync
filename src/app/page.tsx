@@ -1,10 +1,11 @@
-'use client';
-import React from 'react';
+import Menu from './components/Menu';
 import Botao from './components/botao';
+    
 export default function Home() {
-  return (
-    <main>
+  return( 
+    <>
+      <Menu />
       <Botao />
-    </main>
+   </> 
   );
 }
