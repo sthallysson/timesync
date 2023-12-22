@@ -8,9 +8,8 @@ import {PiCalendarLight} from 'react-icons/pi';
 
 export default function MenuCalendar(){
     return (
-        <aside className=' w-52'>
+        <aside className=' w-52 h-screen bg-lime-900'>
             {/*Como orientar verticalmente */}
-            <div className='h-screen bg-lime-900'>
                 <ButtonGroup className=" grid grid-cols-1 pt-5" radius="none" size="md">
                     <Button startContent={<MdOutlineMenuBook/>} className="text-white bg-lime-900 justify-start">
                         Meus cursos
@@ -25,7 +24,6 @@ export default function MenuCalendar(){
                         Eventos
                     </Button>
                 </ButtonGroup>
-            </div>
         </aside>
     )
 }
