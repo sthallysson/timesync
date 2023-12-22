@@ -1,12 +1,11 @@
 /* eslint-disable prettier/prettier */
-'use client'
 
 import { Avatar, Checkbox, Progress} from '@nextui-org/react';
 
 export default function Menu() {
 
   return (
-  <aside className=' w-fit m-2 border-2 border-slate-600'>
+  <aside className=' w-fit p-1 border-3 border-slate-800'>
     <div>
       <h2>Opções:</h2>
       <ul className=' flex flex-col justify-between px-1'>

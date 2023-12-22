@@ -1,5 +1,5 @@
-import Menu from './components/Menu';
+import MenuCalendar from './components/MenuCalendar';
 
 export default function Home() {
-  return <Menu />;
+  return <MenuCalendar />;
 }
