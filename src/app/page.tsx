@@ -1,13 +1,9 @@
-import Menu from './components/Menu';
-import Botao from './components/botao';
-import { MonthCalendar } from './components/MonthCalendar';
-    
+import UserStats from './components/UserStats';
+
 export default function Home() {
-  return ( 
+  return (
     <>
-      <Menu />
-      <Botao />
-      <MonthCalendar />
-   </> 
+      <UserStats />
+    </>
   );
 }
