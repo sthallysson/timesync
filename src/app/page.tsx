@@ -1,16 +1,15 @@
+'use client'; // Colocar este use client no component Botao
 
+import Botao from './components/botao';
 import Header from './components/header';
 import Menu from './components/Menu';
-import Botao from './components/botao';
-import { MonthCalendar } from './components/MonthCalendar';
-    
+
 export default function Home() {
-  return ( 
+  return (
     <>
-      <Menu />
       <Header />
+      <Menu />
       <Botao />
-      <MonthCalendar />
-   </> 
+    </>
   );
 }
