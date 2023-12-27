@@ -1,3 +1,4 @@
+'use client';
 import {
   Modal,
   ModalContent,
@@ -7,33 +8,56 @@ import {
   Button,
   useDisclosure,
 } from '@nextui-org/react';
+import { GoPlus } from 'react-icons/go';
+import { Input, Textarea } from '@nextui-org/react';
+import { CiLocationOn } from 'react-icons/ci';
 
 export default function Botao() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <>
-      <Button className="bg-green-500 text-white" onPress={onOpen}>
-        Calendario
+      <Button
+        radius="sm"
+        startContent={<GoPlus className="text-2xl" />}
+        className="bg-green-500 text-white text-1xl "
+        onPress={onOpen}
+      >
+        Novo evento
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                Calendario SOFTEX
+                Novo Evento
               </ModalHeader>
               <ModalBody>
-                <p className="text-gray-700">Bem vindo ao nosso calendario</p>
-                <p className="text-gray-700">Aqui vc pode organizar</p>
-                <p className="text-gray-700">Texto aqui</p>
+                <div className="flex-col flex gap-1">
+                  <Input type="text" label="Titulo" />
+                  <Input
+                    type="datetime-local"
+                    label="Data/Hora"
+                    placeholder="Data/Hora"
+                  />
+
+                  <Input
+                    endContent={<CiLocationOn className="text-xl" />}
+                    type="text"
+                    label="Localização"
+                  />
+                  <Textarea
+                    label="Descrição"
+                    placeholder="Escreva sua descrição"
+                  />
+                </div>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   Fechar
                 </Button>
                 <Button className="bg-green-500  text-white" onPress={onClose}>
-                  Ativar
+                  Salvar
                 </Button>
               </ModalFooter>
             </>
