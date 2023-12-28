@@ -6,7 +6,7 @@ import React, { useContext } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoIosArrowBack } from 'react-icons/io';
 
-import Botao from '../botao';
+import Botao from '../NewEventButton';
 
 import CalendarContext from '@/contexts/CalendarContext';
 import dayjs from 'dayjs';
