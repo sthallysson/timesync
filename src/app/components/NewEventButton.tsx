@@ -12,7 +12,7 @@ import { GoPlus } from 'react-icons/go';
 import { Input, Textarea } from '@nextui-org/react';
 import { CiLocationOn } from 'react-icons/ci';
 
-export default function Botao() {
+export default function NewEventButton() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -34,7 +34,7 @@ export default function Botao() {
               </ModalHeader>
               <ModalBody>
                 <div className="flex-col flex gap-1">
-                  <Input type="text" label="Titulo" />
+                  <Input type="text" label="Título" />
                   <Input
                     type="datetime-local"
                     label="Data/Hora"
