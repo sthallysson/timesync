@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
 
+import CalendarContextWrapper from '@/contexts/CalendarContextWrapper';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -17,9 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="light">
+    <html lang="pt-BR" className="light">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <CalendarContextWrapper>
+          <Providers>{children}</Providers>
+        </CalendarContextWrapper>
       </body>
     </html>
   );
