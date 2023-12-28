@@ -3,6 +3,7 @@
 import Header from './components/header';
 import UserStats from './components/UserStats';
 import Botao from './components/botao';
+import Perfil from './components/perfil';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Header />
       <Botao />
       <UserStats />
+      <Perfil />
     </> 
   );
 }
