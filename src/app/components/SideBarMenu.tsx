@@ -1,16 +1,13 @@
 /* eslint-disable prettier/prettier */
 'use client'
-
-import { Button, ButtonGroup} from "@nextui-org/react";
-import { useRouter } from "next/navigation";
+// Use o Link nos componentes Button
+import { Button, ButtonGroup, Link} from "@nextui-org/react";
 import {BsListCheck} from 'react-icons/bs';
 import {FaRegCalendarCheck} from 'react-icons/fa'
 import {MdOutlineMenuBook} from 'react-icons/md';
 import {PiCalendarLight} from 'react-icons/pi';
 
-export default function MenuCalendar(){
-    // O Hook 'useRouter' é usado para criar links entre as rotas da aplicação em Next.js
-    const route = useRouter();
+export default function SideBarMenu(){
 
     return (
         <aside className=' w-52 h-screen bg-lime-900'>
@@ -19,7 +16,8 @@ export default function MenuCalendar(){
                     <Button 
                     startContent={<MdOutlineMenuBook/>} 
                     className="text-white bg-lime-900 justify-start"
-                    onClick={()=>{route.push('/cursos')}}
+                    as={Link}
+                    href="/cursos"
                     >
                         Meus cursos
                     </Button>
@@ -27,7 +25,8 @@ export default function MenuCalendar(){
                     <Button 
                     startContent={<PiCalendarLight/>} 
                     className="text-white bg-lime-900 justify-start"
-                    onClick={()=>{route.push('/calendario')}}
+                    as={Link}
+                    href="/calendario"
                     >
                         Calendario
                     </Button>
@@ -35,7 +34,8 @@ export default function MenuCalendar(){
                     <Button 
                     startContent={<BsListCheck/>} 
                     className="text-white bg-lime-900 justify-start"
-                    onClick={()=>{route.push('/agenda')}}
+                    as={Link}
+                    href="/agenda"
                     >
                         Agenda
                     </Button>
@@ -43,7 +43,8 @@ export default function MenuCalendar(){
                     <Button 
                     startContent={<FaRegCalendarCheck/>} 
                     className="text-white bg-lime-900 justify-start"
-                    onClick={()=>{route.push('/eventos')}}
+                    as={Link}
+                    href="/eventos"
                     >
                         Eventos
                     </Button>
