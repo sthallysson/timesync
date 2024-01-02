@@ -41,7 +41,7 @@ export default function Day({ day, style }: DayProps) {
 
   function getCurrentDayClass() {
     return day.format('DD-MM-YY') === dayjs().format('DD-MM-YY')
-      ? 'bg-green-700 text-white rounded-full w-7 h-7'
+      ? 'bg-gradient-to-t from-green-700 via-green-600 to-green-700 text-white rounded-full w-7 h-7'
       : '';
   }
 
@@ -61,7 +61,7 @@ export default function Day({ day, style }: DayProps) {
     <>
       <div
         onClick={onOpen}
-        className={`border sm:h-24 h-16 sm:px-4 sm:py-2 text-xs px-2 py-1 bg-[#F5F5F5] border-gray-300 flex items-center rounded-lg ${style} flex-col`}
+        className={`border sm:h-24 min-h-16 sm:px-4 sm:py-2 text-xs px-2 py-1 bg-[#F5F5F5] border-gray-300 flex items-center rounded-lg ${style} flex-col`}
       >
         <p
           className={`text-sm p-1 text-center font-semibold ${getCurrentDayClass()}`}
@@ -72,7 +72,7 @@ export default function Day({ day, style }: DayProps) {
           {savedEvents.map((ev, i) => (
             <div
               key={i}
-              className={`bg-${ev.label}-500 rounded-md px-2 p-1 text-white`}
+              className={`bg-${ev.label}-500 rounded-md px-2 p-1 text-white cursor-pointer`}
             >
               {ev.title}
             </div>
