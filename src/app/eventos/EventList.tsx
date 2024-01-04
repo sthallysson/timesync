@@ -33,15 +33,9 @@ export default function EventList() {
   ];
 
   return (
-    <div className="gap-3 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 p-4 sm:grid-cols-2">
+    <div className="gap-3 p-4 grid grid-cols-[repeat(auto-fill,min(320px))]">
       {list.map((item, index) => (
-        <Card
-          shadow="sm"
-          key={index}
-          isPressable
-          onPress={() => console.log('item pressed')}
-          radius="sm"
-        >
+        <Card shadow="sm" key={index} radius="sm">
           <CardBody className="overflow-visible p-0">
             <Image
               shadow="sm"
@@ -53,8 +47,8 @@ export default function EventList() {
             />
           </CardBody>
           <CardFooter className="flex flex-col text-small gap-2">
-            <header className="flex justify-between w-full">
-              <h2 className="text-lg font-semibold">{item.title}</h2>
+            <header className="flex justify-between items-center w-full">
+              <h2 className="text-lg font-semibold text-left">{item.title}</h2>
               <p className="text-default-500">{item.date}</p>
             </header>
             <p className="text-justify">
