@@ -1,5 +1,11 @@
-import React from 'react';
+import Hero from '../Hero';
+import Syllabus from '../Syllabus';
 
 export default function FrontEnd() {
-  return <div>FrontEnd</div>;
+  return (
+    <>
+      <Hero title="Desenvolvedor FrontEnd" />
+      <Syllabus />
+    </>
+  );
 }

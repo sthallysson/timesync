@@ -1,5 +1,5 @@
-import React from 'react';
+import Hero from '../Hero';
 
 export default function BackEnd() {
-  return <div>Backend</div>;
+  return <Hero title="Desenvolvedor BackEnd" />;
 }
