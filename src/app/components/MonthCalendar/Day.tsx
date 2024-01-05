@@ -11,7 +11,9 @@ import {
 } from '@nextui-org/react';
 import React, { FormEvent, useState } from 'react';
 import { CiLocationOn } from 'react-icons/ci';
-import { FaCheck, FaRegClock } from 'react-icons/fa';
+import { FaRegClock } from 'react-icons/fa';
+
+import EventLabels from './EventLabels';
 
 import dayjs, { Dayjs } from 'dayjs';
 
@@ -29,12 +31,10 @@ type Events = {
 };
 
 export default function Day({ day, style }: DayProps) {
-  const labels = ['blue', 'green', 'yellow', 'gray', 'red', 'purple'];
-
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
-  const [selectedLabel, setSelectedLabel] = useState(labels[0]);
+  const [selectedLabel, setSelectedLabel] = useState('blue');
   const [savedEvents, setSavedEvents] = useState<Events[]>([]);
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -101,18 +101,10 @@ export default function Day({ day, style }: DayProps) {
                     onChange={(e) => setTitle(e.target.value)}
                   />
 
-                  <section className="flex ml-1 gap-1">
-                    {labels.map((lbl, idx) => (
-                      <button
-                        key={idx}
-                        type="button"
-                        onClick={() => setSelectedLabel(lbl)}
-                        className={`bg-${lbl}-500 w-7 h-7 rounded-full flex items-center justify-center text-gray-300 cursor-pointer hover:scale-110 transition-all`}
-                      >
-                        {selectedLabel === lbl && <FaCheck />}
-                      </button>
-                    ))}
-                  </section>
+                  <EventLabels
+                    selectedLabel={selectedLabel}
+                    setSelectedLabel={setSelectedLabel}
+                  />
 
                   <p className="flex items-center gap-2 ml-2 ">
                     <FaRegClock />
