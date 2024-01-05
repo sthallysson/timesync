@@ -8,9 +8,9 @@ import {
   Button,
   useDisclosure,
 } from '@nextui-org/react';
-import { GoPlus } from 'react-icons/go';
 import { Input, Textarea } from '@nextui-org/react';
 import { CiLocationOn } from 'react-icons/ci';
+import { GoPlus } from 'react-icons/go';
 
 export default function NewEventButton() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
