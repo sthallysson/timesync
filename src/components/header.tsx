@@ -2,7 +2,7 @@ import Perfil from './perfil';
 
 export default function Header() {
   return (
-    <header className="flex bg-lime-900 justify-between items-center py-2 px-10 pr-3">
+    <header className="flex bg-[#264422] justify-between items-center py-2 px-10 pr-3 fixed top-0 w-full h-20 z-20">
       {/* logo da softex e input - direita, buscar evento */}
       <a href="/">
         <img

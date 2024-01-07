@@ -69,14 +69,18 @@ export default function Day({ day, style }: DayProps) {
           {day.format('DD')}
         </p>
         <section className="flex flex-col gap-[1px] w-full overflow-y-scroll no-scrollbar ">
-          {savedEvents.map((ev, i) => (
-            <div
-              key={i}
-              className={`bg-${ev.label}-500 rounded-md px-2 p-1 text-white cursor-pointer`}
-            >
-              {ev.title}
-            </div>
-          ))}
+          {savedEvents.map((ev, i) => {
+            return (
+              ev.day === day && (
+                <div
+                  key={i}
+                  className={`bg-${ev.label}-500 rounded-md px-2 p-1 text-white cursor-pointer`}
+                >
+                  {ev.title}
+                </div>
+              )
+            );
+          })}
         </section>
       </div>
 
