@@ -69,7 +69,7 @@ export default function Home() {
         className="
           w-3/4 h-3/5
           md:w-1/2
-          xl:w-4/12 
+          xl:w-4/12
           p-3 text-center flex flex-col justify-evenly
           "
       >
