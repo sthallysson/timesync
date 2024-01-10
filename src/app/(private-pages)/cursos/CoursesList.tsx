@@ -1,19 +1,11 @@
 'use client';
 
-import { Card, CardBody, CardFooter, Image, Link } from '@nextui-org/react';
+import { Card, CardBody, CardFooter, Image } from '@nextui-org/react';
+import NextImage from 'next/image';
+import NextLink from 'next/link';
 
+import { courses } from '@/utils/courses';
 import { motion } from 'framer-motion';
-
-const courses = [
-  {
-    title: 'Desenvolvedor Back end',
-    img: 'https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-de-back-end_114360-22210.jpg?size=626&ext=jpg&ga=GA1.1.884335197.1703443415&semt=ais',
-  },
-  {
-    title: 'Desenvolvedor Front end',
-    img: 'https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-de-programacao_114360-1351.jpg?size=626&ext=jpg&ga=GA1.1.884335197.1703443415&semt=ais',
-  },
-];
 
 export default function CoursesList() {
   return (
@@ -31,7 +23,7 @@ export default function CoursesList() {
         Meus cursos
       </motion.h1>
       <motion.div
-        className="gap-2 grid grid-cols-2 sm:grid-cols-4  "
+        className="gap-3 p-4 grid grid-cols-[repeat(auto-fill,min(320px))] "
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -46,7 +38,7 @@ export default function CoursesList() {
             key={index}
             isPressable
             onPress={() => console.log('item pressed')}
-            as={Link}
+            as={NextLink}
             href={`/cursos/${item.title
               .toLocaleLowerCase()
               .split(' ')
@@ -54,15 +46,17 @@ export default function CoursesList() {
           >
             <CardBody className="overflow-visible p-0 ">
               <Image
+                as={NextImage}
                 shadow="none"
                 radius="none"
-                width="100%"
+                width={320}
+                height={208}
                 alt={item.title}
                 className="w-full object-contain max-h-[200px] "
                 src={item.img}
               />
             </CardBody>
-            <CardFooter className="text-small justify-between text-white sm:text-small bg-gradient-to-b from-green-800 via-green-600 to-green-800">
+            <CardFooter className="text-small justify-between text-white sm:text-small bg-[#1B4332]">
               <b>{item.title}</b>
             </CardFooter>
           </Card>

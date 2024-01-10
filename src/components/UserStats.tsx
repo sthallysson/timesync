@@ -1,29 +1,11 @@
 'use client';
 
-import { Avatar, Checkbox, Progress } from '@nextui-org/react';
+import { Avatar, Progress } from '@nextui-org/react';
 
 export default function UserStats() {
   return (
     <aside className="w-80 m-2 border-2 border-slate-600">
       <div>
-        {/* <h2>Opções:</h2>
-        <ul className=" flex flex-col justify-between px-1">
-          <li className=" my-2">
-            <Checkbox size="md" color="success" radius="none" />
-            <span className=" px-1">Encontros presenciais/remotos</span>
-          </li>
-
-          <li className=" my-2">
-            <Checkbox size="md" color="success" radius="none" />
-            <span className=" px-1">Eventos da área de trabalho</span>
-          </li>
-
-          <li className=" my-2">
-            <Checkbox size="md" color="success" radius="none" />
-            <span className=" px-1">Outros calendários</span>
-          </li>
-        </ul> */}
-
         <h2>Meu perfil</h2>
         <div className=" m-2">
           <div className=" flex flex-col justify-evenly items-center mt-6">

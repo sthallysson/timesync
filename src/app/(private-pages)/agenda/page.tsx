@@ -1,4 +1,4 @@
-import EventList from '../../../components/eventList';
+import EventList from './eventList';
 
 export default function Agenda() {
   return (

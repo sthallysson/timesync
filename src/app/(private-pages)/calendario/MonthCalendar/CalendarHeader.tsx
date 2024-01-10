@@ -6,42 +6,38 @@ import React, { useContext } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoIosArrowBack } from 'react-icons/io';
 
-import Botao from '../NewEventButton';
+import Botao from '../../../../components/NewEventButton';
 
 import CalendarContext from '@/contexts/CalendarContext';
+import { handleBackToday } from '@/functions/handle-back-today';
 import dayjs from 'dayjs';
 
 export default function CalendarHeader() {
   const { monthIndex, setMonthIndex } = useContext(CalendarContext);
 
-  function handleReset() {
-    setMonthIndex(
-      monthIndex === dayjs().month()
-        ? monthIndex + Math.random()
-        : dayjs().month(),
-    );
-  }
-
   return (
     <header className="flex items-center justify-between px-4 py-2">
       <section className="flex gap-2 items-center">
         <Button
-          className="font-semibold rounded-lg bg-gradient-to-r from-gray-300 via-gray-100 to-gray-300"
-          onClick={handleReset}
+          className="font-semibold rounded-lg bg-[#f8f9fa]"
+          onClick={() => handleBackToday(monthIndex, setMonthIndex)}
+          aria-label="Hoje"
         >
           Hoje
         </Button>
 
         <button
-          className="ml-6 hover:bg-gray-100 focus:bg-gray-300 rounded-full flex justify-center items-center p-1"
+          className="ml-6 hover:bg-gray-100 focus:bg-gray-200 rounded-full flex justify-center items-center p-1"
           onClick={() => setMonthIndex(monthIndex - 1)}
+          aria-label="Mês anterior"
         >
           <IoIosArrowBack className="text-xl" />
         </button>
 
         <button
-          className=" hover:bg-gray-100 focus:bg-gray-300 rounded-full flex justify-center items-center p-1"
+          className=" hover:bg-gray-100 focus:bg-gray-200 rounded-full flex justify-center items-center p-1"
           onClick={() => setMonthIndex(monthIndex + 1)}
+          aria-label="Próximo mês"
         >
           <IoIosArrowForward className="text-xl" />
         </button>

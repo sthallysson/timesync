@@ -25,7 +25,7 @@ export default function Hero({ title }: HeroProps) {
     >
       <h1 className="text-3xl font-bold ">Fap - {title}</h1>
       <button
-        className="hover:bg-gray-300 focus:bg-gray-400 rounded-full w- flex justify-center items-center p-1"
+        className="hover:bg-gray-100 focus:bg-gray-200 rounded-full flex justify-center items-center p-1"
         onClick={() => router.push('/cursos')}
       >
         <IoIosArrowBack className="text-4xl" />
