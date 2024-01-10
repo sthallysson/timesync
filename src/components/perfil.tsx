@@ -7,18 +7,19 @@ import {
   DropdownItem,
   User,
 } from '@nextui-org/react';
-import { IoSettingsOutline } from 'react-icons/io5';
+import { GiProgression } from 'react-icons/gi';
 import { IoMdExit } from 'react-icons/io';
 import { IoIosNotificationsOutline } from 'react-icons/io';
-import { GiProgression } from 'react-icons/gi';
+import { IoSettingsOutline } from 'react-icons/io5';
 
 export default function Perfil() {
   return (
     <>
-      <Dropdown className="bg-lime-700 text-white">
+      <Dropdown className="bg-[#1B4332] text-white">
         <DropdownTrigger>
           <User
             as="button"
+            name=""
             avatarProps={{
               src: 'https://i.pravatar.cc/150?u=a042581f4e29026024d',
             }}
@@ -28,7 +29,7 @@ export default function Perfil() {
         <DropdownMenu aria-label="User Actions" variant="solid">
           <DropdownItem
             key="profile"
-            variant=""
+            variant={undefined}
             className=" text-gray-100 cursor-default  "
           >
             <p className="font-bold">Bem vindo</p>

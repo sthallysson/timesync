@@ -18,7 +18,7 @@ export default function MonthCalendar() {
 
   return (
     <main>
-      <header className="grid grid-cols-7 bg-gradient-to-t from-green-700 via-green-600 to-green-700 text-white shadow-gray-300 mx-4 border rounded-lg">
+      <header className="grid grid-cols-7 bg-[#1B4332] text-white shadow-gray-300 mx-4 border rounded-lg">
         {currentMonth.daysOfWeek.map((day) => (
           <div
             key={day}
@@ -28,6 +28,7 @@ export default function MonthCalendar() {
           </div>
         ))}
       </header>
+
       <div className="grid grid-cols-7  m-4 gap-2">
         {currentMonth.prevMonthDays.map((day, i) => (
           <React.Fragment key={`prev-${i}`}>

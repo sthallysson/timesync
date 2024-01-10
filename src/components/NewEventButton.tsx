@@ -20,7 +20,7 @@ export default function NewEventButton() {
       <Button
         radius="sm"
         startContent={<GoPlus className="text-2xl" />}
-        className="bg-green-500 text-white text-1xl "
+        className="bg-[#1B4332] text-white text-1xl "
         onPress={onOpen}
       >
         Novo evento
