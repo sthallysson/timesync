@@ -16,7 +16,7 @@ export const eventsList = [
   },
   {
     title: 'Inicio do Curso de FrontEnd',
-    img: 'https://i.pinimg.com/564x/bc/81/cf/bc81cfb9df56f9011f437ac32b0e71c8.jpg',
+    img: 'https://img.freepik.com/free-vector/pair-programming-concept-illustration_114360-2751.jpg?w=740&t=st=1704931670~exp=1704932270~hmac=67c54ff39faa10b22d93f2c120aa067bb93066ad87adf25b48ea1cf505f98ff5',
     date: '06/08/2023',
   },
   {
