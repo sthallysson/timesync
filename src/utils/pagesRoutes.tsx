@@ -5,9 +5,9 @@ import { PiCalendarLight } from 'react-icons/pi';
 
 export const pagesRoutes = [
   {
-    name: 'Eventos',
-    path: '/eventos',
-    icon: <FaRegCalendarCheck />,
+    name: 'Meus cursos',
+    path: '/cursos',
+    icon: <MdOutlineMenuBook />,
   },
   {
     name: 'Calendario',
@@ -20,8 +20,8 @@ export const pagesRoutes = [
     icon: <BsListCheck />,
   },
   {
-    name: 'Meus cursos',
-    path: '/cursos',
-    icon: <MdOutlineMenuBook />,
+    name: 'Eventos',
+    path: '/eventos',
+    icon: <FaRegCalendarCheck />,
   },
 ];
