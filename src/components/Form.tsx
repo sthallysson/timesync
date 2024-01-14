@@ -1,4 +1,5 @@
 import { Input, Button } from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { MdLockOutline, MdLockOpen } from 'react-icons/md';
@@ -20,6 +21,8 @@ const createUserFormSchema = z.object({
 export default function Form() {
   const [output, setOutput] = useState('');
   const [isVisible, setIsVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const {
     register,
@@ -36,6 +39,8 @@ export default function Form() {
   function createUser(data: { email: string; password: string }) {
     setOutput(JSON.stringify(data, null, 2));
     console.log(output);
+    setLoading(true);
+    router.push('/cursos');
   }
 
   return (
@@ -79,7 +84,12 @@ export default function Form() {
           {...register('password')}
         />
 
-        <Button type="submit" color="success" className="w-full">
+        <Button
+          type="submit"
+          color="success"
+          className="w-full"
+          isLoading={loading}
+        >
           Entrar
         </Button>
       </div>

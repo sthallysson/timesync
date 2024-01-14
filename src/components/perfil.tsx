@@ -7,6 +7,7 @@ import {
   DropdownItem,
   User,
 } from '@nextui-org/react';
+import NextLink from 'next/link';
 import { GiProgression } from 'react-icons/gi';
 import { IoMdExit } from 'react-icons/io';
 import { IoIosNotificationsOutline } from 'react-icons/io';
@@ -59,6 +60,8 @@ export default function Perfil() {
             startContent={<IoMdExit className="text-large" />}
             key="logout"
             color="danger"
+            as={NextLink}
+            href="/"
           >
             Sair
           </DropdownItem>
