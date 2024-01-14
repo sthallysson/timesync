@@ -1,10 +1,10 @@
 import { useDisclosure } from '@nextui-org/react';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
 import EventModal from './EventModal';
 
+import CalendarContext from '@/contexts/CalendarContext';
 import { getCurrentDayClass } from '@/functions/get-current-day-class';
-import { Events } from '@/types/events';
 import { Dayjs } from 'dayjs';
 
 interface DayProps {
@@ -13,7 +13,8 @@ interface DayProps {
 }
 
 export default function Day({ day, style }: DayProps) {
-  const [savedEvents, setSavedEvents] = useState<Events[]>([]);
+  //   const [savedEvents, setSavedEvents] = useState<Events[]>([]);
+  const { savedEvents } = useContext(CalendarContext);
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -33,7 +34,7 @@ export default function Day({ day, style }: DayProps) {
         <section className="flex flex-col gap-[1px] w-full overflow-y-scroll no-scrollbar ">
           {savedEvents.map((ev, i) => {
             return (
-              ev.day === day && (
+              ev.day === day.valueOf() && (
                 <div
                   key={i}
                   className={`bg-${ev.label}-500 rounded-md px-2 p-1 text-white cursor-pointer`}
@@ -46,13 +47,7 @@ export default function Day({ day, style }: DayProps) {
         </section>
       </div>
 
-      <EventModal
-        day={day}
-        setSavedEvents={setSavedEvents}
-        savedEvents={savedEvents}
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-      />
+      <EventModal day={day} isOpen={isOpen} onOpenChange={onOpenChange} />
     </>
   );
 }

@@ -8,26 +8,23 @@ import {
   Input,
   Textarea,
 } from '@nextui-org/react';
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useContext, useState } from 'react';
 import { CiLocationOn } from 'react-icons/ci';
 import { FaRegClock } from 'react-icons/fa';
 
 import EventLabels from './EventLabels';
 
-import { Events } from '@/types/events';
+import CalendarContext from '@/contexts/CalendarContext';
+// import { Events } from '@/types/events';
 import { Dayjs } from 'dayjs';
 
 interface EventModalProps {
-  savedEvents: Events[];
-  setSavedEvents: (ev: Events[]) => void;
   day: Dayjs;
   isOpen: boolean;
   onOpenChange: () => void;
 }
 
 export default function EventModal({
-  savedEvents,
-  setSavedEvents,
   day,
   isOpen,
   onOpenChange,
@@ -37,17 +34,32 @@ export default function EventModal({
   const [description, setDescription] = useState('');
   const [selectedLabel, setSelectedLabel] = useState('blue');
 
+  const { dispatchCalEvent } = useContext(CalendarContext);
+
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-    setSavedEvents([
-      ...savedEvents,
-      { title, location, description, day, label: selectedLabel },
-    ]);
+    const calendarEvent = {
+      title,
+      location,
+      description,
+      day: day.valueOf(),
+      label: selectedLabel,
+      id: Date.now(),
+    };
 
-    setTitle('');
-    setLocation('');
-    setDescription('');
+    dispatchCalEvent({ type: 'add', payload: calendarEvent });
   }
+  //   function onSubmit(e: FormEvent) {
+  //     e.preventDefault();
+  //     setSavedEvents([
+  //       ...savedEvents,
+  //       { title, location, description, day, label: selectedLabel },
+  //     ]);
+
+  //     setTitle('');
+  //     setLocation('');
+  //     setDescription('');
+  //   }
 
   return (
     <Modal isOpen={isOpen} backdrop="transparent" onOpenChange={onOpenChange}>
