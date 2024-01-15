@@ -1,14 +1,10 @@
+import { useContext } from 'react';
 import { FaCheck } from 'react-icons/fa';
 
-interface EventLabelsProps {
-  selectedLabel: string;
-  setSelectedLabel: (lbl: string) => void;
-}
+import CalendarContext from '@/contexts/CalendarContext';
 
-export default function EventLabels({
-  selectedLabel,
-  setSelectedLabel,
-}: EventLabelsProps) {
+export default function EventLabels() {
+  const { selectedLabel, setSelectedLabel } = useContext(CalendarContext);
   return (
     <section className="flex ml-1 gap-1">
       <button

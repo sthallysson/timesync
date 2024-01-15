@@ -8,6 +8,8 @@ const CalendarContext = createContext({
   setMonthIndex: (index: number) => {},
   dispatchCalEvent: ({ type, payload }: ActionProps) => {},
   savedEvents: [] as Events[],
+  selectedLabel: '',
+  setSelectedLabel: (label: string) => {},
 });
 
 export default CalendarContext;

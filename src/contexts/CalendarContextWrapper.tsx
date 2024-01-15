@@ -38,6 +38,7 @@ export default function CalendarContextWrapper({
   children,
 }: CalendarContextWrapper) {
   const [monthIndex, setMonthIndex] = useState(dayjs().month());
+  const [selectedLabel, setSelectedLabel] = useState('blue');
   const [savedEvents, dispatchCalEvent] = useReducer(
     savedEventsReducer,
     initialEvents,
@@ -50,7 +51,14 @@ export default function CalendarContextWrapper({
 
   return (
     <CalendarContext.Provider
-      value={{ monthIndex, setMonthIndex, dispatchCalEvent, savedEvents }}
+      value={{
+        monthIndex,
+        setMonthIndex,
+        dispatchCalEvent,
+        savedEvents,
+        selectedLabel,
+        setSelectedLabel,
+      }}
     >
       {children}
     </CalendarContext.Provider>

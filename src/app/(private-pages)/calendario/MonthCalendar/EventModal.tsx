@@ -15,7 +15,6 @@ import { FaRegClock } from 'react-icons/fa';
 import EventLabels from './EventLabels';
 
 import CalendarContext from '@/contexts/CalendarContext';
-// import { Events } from '@/types/events';
 import { Dayjs } from 'dayjs';
 
 interface EventModalProps {
@@ -32,9 +31,8 @@ export default function EventModal({
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
-  const [selectedLabel, setSelectedLabel] = useState('blue');
 
-  const { dispatchCalEvent } = useContext(CalendarContext);
+  const { dispatchCalEvent, selectedLabel } = useContext(CalendarContext);
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -48,18 +46,10 @@ export default function EventModal({
     };
 
     dispatchCalEvent({ type: 'add', payload: calendarEvent });
+    setTitle('');
+    setLocation('');
+    setDescription('');
   }
-  //   function onSubmit(e: FormEvent) {
-  //     e.preventDefault();
-  //     setSavedEvents([
-  //       ...savedEvents,
-  //       { title, location, description, day, label: selectedLabel },
-  //     ]);
-
-  //     setTitle('');
-  //     setLocation('');
-  //     setDescription('');
-  //   }
 
   return (
     <Modal isOpen={isOpen} backdrop="transparent" onOpenChange={onOpenChange}>
@@ -83,10 +73,7 @@ export default function EventModal({
                   onChange={(e) => setTitle(e.target.value)}
                 />
 
-                <EventLabels
-                  selectedLabel={selectedLabel}
-                  setSelectedLabel={setSelectedLabel}
-                />
+                <EventLabels />
 
                 <p className="flex items-center gap-2 ml-2 ">
                   <FaRegClock />
