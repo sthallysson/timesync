@@ -6,7 +6,6 @@ export default function Agenda() {
       <h1 className="text-3xl font-semibold p-4">Agenda</h1>
 
       <EventList />
-      <EventList />
     </>
   );
 }
