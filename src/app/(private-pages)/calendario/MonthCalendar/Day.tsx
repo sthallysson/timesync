@@ -1,11 +1,13 @@
 import { useDisclosure } from '@nextui-org/react';
+import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/react';
 import React, { useContext } from 'react';
+// import { FaRegTrashAlt } from 'react-icons/fa';
 
 import EventModal from './EventModal';
 
 import CalendarContext from '@/contexts/CalendarContext';
 import { getCurrentDayClass } from '@/functions/get-current-day-class';
-import { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 
 interface DayProps {
   day: Dayjs;
@@ -35,12 +37,43 @@ export default function Day({ day, style }: DayProps) {
           {savedEvents.map((ev, i) => {
             return (
               ev.day === day.valueOf() && (
-                <div
-                  key={i}
-                  className={`bg-${ev.label}-500 rounded-md px-2 p-1 text-white cursor-pointer`}
-                >
-                  {ev.title}
-                </div>
+                <Popover key={i} placement="top" color="primary">
+                  <PopoverTrigger>
+                    <span
+                      className={`bg-${ev.label}-500 rounded-md px-2 p-1 text-white cursor-pointer`}
+                    >
+                      {ev.title}
+                    </span>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    className={`bg-${ev.label}-500 rounded-md z-50`}
+                  >
+                    <div className="p-2 w-full block z-50">
+                      <header className="flex justify-between items-center">
+                        <div className="text-small font-bold">{ev.title}</div>
+                        {/*  <button className="">
+                          <FaRegTrashAlt />
+                        </button> */}
+                      </header>
+                      <div className="text-tiny">
+                        <p>
+                          {dayjs(ev.day)
+                            .locale('pt-br')
+                            .format(`dddd, DD MMMM`)}
+                        </p>
+                        <p>{ev.location}</p>
+                        <p>{ev.description}</p>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+                //     <div
+                //       key={i}
+                //       className={`bg-${ev.label}-500 rounded-md px-2 p-1 text-white cursor-pointer`}
+                //     >
+                //       {ev.title}
+                //     </div>
+                //   )
               )
             );
           })}
